@@ -3,6 +3,7 @@ package com.mycompany.apache.cxf.rest.dao;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 
 import com.mycompany.apache.cxf.rest.model.Customer;
 
@@ -10,6 +11,7 @@ import com.mycompany.apache.cxf.rest.model.Customer;
  * @author mohanarao_sv
  *
  */
+@Repository
 public class CustomerDao {
 
     public static Logger logger = LoggerFactory.getLogger(CustomerDao.class);

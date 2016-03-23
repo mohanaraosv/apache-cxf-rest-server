@@ -4,14 +4,21 @@ package com.mycompany.apache.cxf.rest.service;
 import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.mycompany.apache.cxf.rest.dao.CustomerDao;
 import com.mycompany.apache.cxf.rest.model.Customer;
 import com.mycompany.apache.cxf.rest.ws.CxfRestService;
 
+@Service("customerServiceImpl")
 public class CxfRestServiceImpl implements CxfRestService {
+
+    private final CustomerDao customerDao;
+
     @Autowired
-    private CustomerDao customerDao;
+    public CxfRestServiceImpl(final CustomerDao customerDao) {
+        this.customerDao = customerDao;
+    }
 
     @Override
     public Response getCustomerDetail(String customerId) {
