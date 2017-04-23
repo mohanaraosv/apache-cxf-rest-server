@@ -21,7 +21,7 @@ public class CxfRestServiceImpl implements CxfRestService {
     }
 
     @Override
-    public Response getCustomerDetail(String customerId) {
+    public Response getCustomerDetail(final String customerId) {
         if (customerId == null) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
@@ -29,10 +29,20 @@ public class CxfRestServiceImpl implements CxfRestService {
     }
 
     @Override
-    public Response createCustomer(Customer customer) {
+    public Response createCustomer(final Customer customer) {
         if (customer == null) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
         return Response.ok(customerDao.createCustomer(customer)).build();
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.mycompany.apache.cxf.rest.ws.CxfRestService#testCustomObject(java.lang.String)
+     */
+    @Override
+    public Customer testCustomObject(final String customerId) {
+        return customerDao.getCustomerDetails(customerId);
     }
 }

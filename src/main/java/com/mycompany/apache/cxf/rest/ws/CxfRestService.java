@@ -17,7 +17,7 @@ import com.mycompany.apache.cxf.rest.model.Customer;
  * 
  * @author mohanarao_sv
  * 
- * This is interface for the customer services
+ *         This is interface for the customer services
  *
  */
 @Path("/")
@@ -35,5 +35,11 @@ public interface CxfRestService {
     @Produces({ MediaType.APPLICATION_JSON })
     @Path("/createCustomer")
     public Response createCustomer(Customer customer);
+
+    @GET
+    @Consumes({ MediaType.APPLICATION_JSON })
+    @Produces({ MediaType.APPLICATION_JSON })
+    @Path("/testCustomObject")
+    public Customer testCustomObject(@QueryParam("customerId") String customerId);
 
 }
